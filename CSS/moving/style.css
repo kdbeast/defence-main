@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  background-color: black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+  from {
+    transform: rotate(0deg) translate(100px);
+  }
+  to {
+    transform: rotate(360deg) translate(100px);
+  }
+}
