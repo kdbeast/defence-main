@@ -102,5 +102,54 @@ function payment(amount, callback) {
   // company ko kitna
 }
 
-payment(500, zomatoOrderPlaced);
-payment(300, blinkitOrderPlaced);
+// payment(500, zomatoOrderPlaced);
+// payment(300, blinkitOrderPlaced);
+
+let global = "Hello";
+
+function greeting5() {
+  // let global = "Hello1";
+  return global;
+}
+
+// console.log(global);
+// console.log(greeting5());
+
+function createCounter() {
+  let count = 0;
+  return function () {
+    count++;
+    return count;
+  };
+}
+
+const counter = createCounter();
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+
+function createUserAccount() {
+  let balance = 1000;
+
+  const features = {
+    deposit: function (amount) {
+      balance += amount;
+      return balance;
+    },
+    withdraw: function (amount) {
+      balance -= amount;
+      return balance;
+    },
+    getBalance: function () {
+      return balance;
+    },
+  };
+
+  return features;
+}
+
+let customer = createUserAccount();
+
+console.log(customer.getBalance());
+console.log(customer.deposit(200));
+console.log(customer.withdraw(1000));
