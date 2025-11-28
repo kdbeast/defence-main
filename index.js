@@ -109,3 +109,82 @@ while (number > 0) {
 }
 
 // console.log("Reversed Number is", reverseNumber);
+
+let n = 5;
+for (let i = 1; i <= n; i++) {
+  for (let j = 1; j <= i; j++) {
+    // process.stdout.write(" *");
+  }
+  // console.log();
+}
+
+let z = 26;
+for (let i = 1; i <= z; i++) {
+  let char = 65;
+  for (let j = 1; j <= i; j++) {
+    // process.stdout.write(String.fromCharCode(char) + " ");
+    char++;
+  }
+  // console.log();
+}
+
+let m = 1;
+for (let i = 5; i >= m; i--) {
+  for (let j = 1; j <= i; j++) {
+    // process.stdout.write(" *");
+  }
+  // console.log();
+}
+
+// inverted
+let k = 5;
+
+for (let i = 1; i <= k; i++) {
+  for (let j = k; j >= i + 1; j--) {
+    // process.stdout.write("  ");
+  }
+
+  for (let j = 1; j <= i; j++) {
+    // process.stdout.write(" *");
+  }
+
+  // console.log();
+}
+
+// pyramid
+let l = 5;
+for (let i = 1; i <= l; i++) {
+  for (let j = 1; j <= l - i; j++) {
+    // process.stdout.write(" ");
+  }
+  for (let j = 1; j <= i; j++) {
+    // process.stdout.write(" *");
+  }
+  // console.log();
+}
+
+// x pattern
+let x = 5;
+for (let i = 1; i <= x; i++) {
+  for (let j = 1; j <= x; j++) {
+    if (i === j || i + j === x + 1) {
+      // process.stdout.write(" *");
+    } else {
+      // process.stdout.write("  ");
+    }
+  }
+  // console.log();
+}
+
+// v pattern
+let v = 5;
+for (let i = 1; i <= v; i++) {
+  for (let j = 1; j <= v * 2 - 1; j++) {
+    if (i === j || i + j === v * 2) {
+      process.stdout.write(" *");
+    } else {
+      process.stdout.write("  ");
+    }
+  }
+  console.log();
+}
