@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Calculator</title>
+  </head>
+  <body
+    style="
+      height: 100vh;
+      display: flex;
+      color: white;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+    "
+  >
+    <div class="parent">
+      <h1>Love Calculator</h1>
+
+      <form>
+        <label for="Boy">Boy</label>
+        <input
+          required
+          id="Boy"
+          name="Boy"
+          type="text"
+          placeholder="Enter Boy's Name"
+          style="width: 90%; padding: 10px; margin: 10px 0"
+        />
+        <br />
+        <label for="Girl">Girl</label>
+        <input
+          required
+          id="Girl"
+          type="text"
+          name="Girl"
+          placeholder="Enter Girl's Name"
+          style="width: 90%; padding: 10px; margin: 10px 0"
+        />
+        <br />
+        <button
+          type="submit"
+          style="
+            width: 100%;
+            border: none;
+            padding: 10px;
+            margin: 10px 0;
+            color: white;
+            cursor: pointer;
+            background-color: #4caf50;
+          "
+        >
+          Calculate
+        </button>
+      </form>
+
+      <h2
+        style="
+          font-size: 20px;
+          margin-top: 20px;
+          font-weight: bold;
+          margin-bottom: 20px;
+        "
+        id="result"
+      >
+        Result:
+      </h2>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
