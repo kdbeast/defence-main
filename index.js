@@ -181,10 +181,27 @@ let v = 5;
 for (let i = 1; i <= v; i++) {
   for (let j = 1; j <= v * 2 - 1; j++) {
     if (i === j || i + j === v * 2) {
-      process.stdout.write(" *");
+      // process.stdout.write(" *");
     } else {
-      process.stdout.write("  ");
+      // process.stdout.write("  ");
     }
   }
-  console.log();
+  // console.log();
 }
+
+// let arr = [1, 2, 3, 4, 5];
+// console.log(arr.length);
+
+// sorting array using for loop
+let arr = [5, 2, 8, 1, 9, 3, 7, 4];
+console.log(arr.length);
+for (let i = 0; i < arr.length; i++) {
+  for (let j = i + 1; j < arr.length; j++) {
+    if (arr[i] > arr[j]) {
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+  }
+}
+console.log(arr);
