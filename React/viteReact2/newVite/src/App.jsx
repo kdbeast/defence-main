@@ -8,20 +8,26 @@ function App() {
   // const increment = () => {
   //   setCount((prevCount) => prevCount + 1);
   // };
-  const [users, setUsers] = useState([]);
-  const [count, setCount] = useState(30);
+  // const [users, setUsers] = useState([]);
+  // const [count, setCount] = useState(30);
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(
-        `https://api.github.com/users?per_page=${count}`
-      );
-      const data = await response.json();
-      setUsers(data);
-    }
+  const [count, setCount] = useState([10, 20, 30, 40, 50]);
 
-    fetchData();
-  }, [count]);
+  const handleChange = () => {
+    setCount([...count, 60]);
+  };
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch(
+  //       `https://api.github.com/users?per_page=${count}`
+  //     );
+  //     const data = await response.json();
+  //     setUsers(data);
+  //   }
+
+  //   fetchData();
+  // }, [count]);
 
   return (
     <>
@@ -52,7 +58,7 @@ function App() {
           justifyContent: "center",
         }}
       >
-        {users.map((user) => {
+        {/* {users.map((user) => {
           return (
             <img
               key={user.id}
@@ -61,7 +67,9 @@ function App() {
               style={{ width: "100px", height: "100px" }}
             />
           );
-        })}
+        })} */}
+        <h1>{count}</h1>
+        <button onClick={handleChange}>Add</button>
       </div>
     </>
   );
