@@ -11,6 +11,8 @@ function App() {
     console.log(name, email, password);
   };
 
+  console.log("Rendered");
+
   return (
     <>
       <h1 className="text-3xl font-bold underline mb-4 flex justify-center">
