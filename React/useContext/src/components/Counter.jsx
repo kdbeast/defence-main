@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { CountContext } from "../App";
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
+  const { count, setCount } = useContext(CountContext);
 
   return (
     <>
