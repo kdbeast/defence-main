@@ -285,24 +285,116 @@
 
 // console.log(arr5);
 
-let arr6 = [1, 2, 3, 4, 5];
-let temp = new Array(arr6.length);
-let vg = 3;
-vg = vg % arr6.length;
+// let arr6 = [1, 2, 3, 4, 5];
+// let temp = new Array(arr6.length);
+// let vg = 3;
+// vg = vg % arr6.length;
 
-for (let i = 0; i < arr6.length; i++) {
-  temp[i] = arr6[(i + vg) % arr6.length];
+// for (let i = 0; i < arr6.length; i++) {
+//   temp[i] = arr6[(i + vg) % arr6.length];
+// }
+
+// console.log(temp);
+
+// let arr7 = [1, 2, 3, 4, 5];
+// let temp2 = new Array(arr7.length);
+// let vg2 = 3;
+// vg2 = vg2 % arr7.length;
+
+// for (let i = arr7.length - 1; i >= 0; i--) {
+//   temp2[i] = arr7[(i + vg2) % arr7.length];
+// }
+
+// console.log(temp2);
+
+// data types //
+console.log("null");
+console.log("number");
+console.log("string");
+console.log("Symbol");
+console.log("BigInt");
+console.log("Boolean");
+console.log("undefined");
+console.log("object");
+
+// type coercion //
+console.log(1 == "1");
+console.log(1 === "1");
+
+// null & undefined //
+let obj = null;
+console.log(obj);
+console.log(undef);
+var undef;
+
+// hoisting //
+console.log(a, "hoisting");
+var a = 10;
+console.log(a, "hoisting");
+
+// function hoisting //
+console.log(add(10, 20), "function hoisting");
+function add(a, b) {
+  return a + b;
+}
+console.log(add(10, 20), "function hoisting");
+
+// let & const //
+// console.log(b, "let"); cannot access before initialization
+let b = 10;
+console.log(b, "let");
+
+// function expression //
+// console.log(add(10, 20), "function expression"); cannot access before initialization
+var add = function (a, b) {
+  return a + b;
+};
+console.log(add(10, 20), "function expression");
+
+// var, let, const //
+console.log(x, "var");
+var x = 10;
+console.log(x, "var");
+
+// console.log(y, "let"); cannot access before initialization
+let y = 10;
+console.log(y, "let");
+
+// console.log(z, "const"); cannot access before initialization
+const z = 10;
+console.log(z, "const");
+
+// object //
+let object = {
+  name: "John",
+  age: 30,
+  city: "New York",
+};
+console.log(object);
+
+// variable scope //
+let global = 10;
+function inner() {
+  let local = 20;
+  console.log(global, "global");
+  console.log(local, "local");
+}
+inner();
+console.log(global, "global");
+// console.log(local, "local"); it will throw error because local is not defined in global scope
+
+// closure //
+function closure(greet) {
+  let counter = 0;
+  return function innerFunc(name) {
+    counter++;
+    console.log(`${greet} ${name} has ${counter} apples`);
+  };
 }
 
-console.log(temp);
-
-let arr7 = [1, 2, 3, 4, 5];
-let temp2 = new Array(arr7.length);
-let vg2 = 3;
-vg2 = vg2 % arr7.length;
-
-for (let i = arr7.length - 1; i >= 0; i--) {
-  temp2[i] = arr7[(i + vg2) % arr7.length];
-}
-
-console.log(temp2);
+let innerValue = closure("Good Morning");
+let innerValue2 = closure("Good Afternoon");
+innerValue("John");
+innerValue("Bob");
+innerValue2("Doe");
+innerValue("Alice");
