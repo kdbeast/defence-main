@@ -324,8 +324,8 @@ console.log(1 === "1");
 // null & undefined //
 let obj = null;
 console.log(obj);
+let undef;
 console.log(undef);
-var undef;
 
 // hoisting //
 console.log(a, "hoisting");
@@ -398,3 +398,182 @@ innerValue("John");
 innerValue("Bob");
 innerValue2("Doe");
 innerValue("Alice");
+
+// functions types //
+
+// Normal Function
+// Pure Function
+function add(a, b) {
+  return a + b;
+}
+
+// Function Expression
+let adding = function (a, b) {
+  return a + b;
+};
+
+// Arrow Function
+let yo = (name) => console.log(`Yo Yo ${name}!`);
+yo("Karan");
+
+// Impure Function
+let counter = 0;
+function increment() {
+  counter++;
+  return counter;
+}
+console.log(increment());
+console.log(increment());
+console.log(increment());
+
+// IIFE Function
+(function instant() {
+  let private = "I am private";
+  console.log("IIFE is running");
+  console.log(private);
+})();
+
+// console.log(private);
+
+// Objects //
+
+// Object literal notation
+let obj1 = {
+  name: "Happy",
+  age: 26,
+  greet: function () {
+    console.log(`Hello my name is ${this.name} and my age is ${this.age}`);
+  },
+};
+
+obj1.greet();
+
+// Constructor Function
+function Person(name, hobby) {
+  this.name = name;
+  this.hobby = hobby;
+  this.work = function () {
+    console.log(`My name is ${name} and my hobby is ${hobby}`);
+  };
+}
+
+let wow = new Person("Divine", "Rapping");
+wow.work();
+
+// Object.create()
+let persoon = {
+  greet: function () {
+    console.log(`Hello my name is ${this.name} and my age is ${this.age}`);
+  },
+};
+let person2 = Object.create(persoon);
+person2.name = "John";
+person2.age = 30;
+person2.city = "New York";
+person2.greet();
+
+// ES6 class syntax
+class PersonClass {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.greet = function () {
+      console.log(`Hello my name is ${this.name} and my age is ${this.age}`);
+    };
+  }
+}
+let person3 = new PersonClass("Divine", 35);
+person3.greet();
+
+// add/remove
+object.modal = "Ford";
+object.year = 100;
+object["city"] = "Jaipur";
+delete object.city;
+// console.log(object);
+
+// property check
+let person = {
+  name: "Alice",
+  age: 25,
+};
+
+// using the in operator
+// console.log("name" in person);
+// console.log("gender" in person);
+
+// using the hasOwnProperty method
+// console.log(person.hasOwnProperty("name"));
+// console.log(person.hasOwnProperty("gender"));
+
+// using undefined check
+// console.log(person.name !== undefined);
+// console.log(person.gender !== undefined);
+
+// optional chaining
+// console.log(person?.name);
+// console.log(person?.gender);
+// console.log(person?.age);
+
+// looping array
+const fruits = ["Apple", "Mango", "Watermelon", "Chiku"];
+
+// 1
+for (let i = 0; i < fruits.length; i++) {
+  console.log("for loop", fruits[i]);
+}
+
+// 2
+fruits.forEach((fruit) => {
+  console.log("forEach", fruit);
+});
+
+// 3
+for (const fruit of fruits) {
+  console.log("for of", fruit);
+}
+
+// 4
+fruits.map((fruit, index) => {
+  console.log("map", fruit.toUpperCase(), index);
+});
+
+// 5
+let i = 0;
+while (i < fruits.length) {
+  console.log("while", fruits[i]);
+  i++;
+}
+
+// 6
+let j = 0;
+do {
+  console.log("do while", fruits[j]);
+  j++;
+} while (j < fruits.length);
+
+// add/remove
+console.log(fruits);
+fruits.push("Orange");
+console.log(fruits);
+fruits.unshift("Strawberry");
+console.log(fruits);
+fruits.pop();
+console.log(fruits);
+fruits.shift();
+console.log(fruits);
+fruits.splice(1, 0, "Kiwi");
+console.log(fruits);
+
+// map
+let numbers = [1, 2, 3, 4, 5];
+
+const doubleNum = numbers.map((number) => {
+  return number * 2;
+});
+console.log(doubleNum);
+
+const numberObj = numbers.map((number) => {
+  return { value: number, sqr: number * number };
+});
+console.log(numberObj);
