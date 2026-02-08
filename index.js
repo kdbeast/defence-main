@@ -307,7 +307,7 @@
 
 // console.log(temp2);
 
-// data types //
+// 1. data types
 console.log("null");
 console.log("number");
 console.log("string");
@@ -317,41 +317,41 @@ console.log("Boolean");
 console.log("undefined");
 console.log("object");
 
-// type coercion //
+// 2. type coercion
 console.log(1 == "1");
 console.log(1 === "1");
 
-// null & undefined //
+// 3. null & undefined
 let obj = null;
 console.log(obj);
 let undef;
 console.log(undef);
 
-// hoisting //
+// 4. hoisting
 console.log(a, "hoisting");
 var a = 10;
 console.log(a, "hoisting");
 
-// function hoisting //
+// function hoisting
 console.log(add(10, 20), "function hoisting");
 function add(a, b) {
   return a + b;
 }
 console.log(add(10, 20), "function hoisting");
 
-// let & const //
+// let & const
 // console.log(b, "let"); cannot access before initialization
 let b = 10;
 console.log(b, "let");
 
-// function expression //
+// function expression
 // console.log(add(10, 20), "function expression"); cannot access before initialization
 var add = function (a, b) {
   return a + b;
 };
 console.log(add(10, 20), "function expression");
 
-// var, let, const //
+// 5. var, let, const
 console.log(x, "var");
 var x = 10;
 console.log(x, "var");
@@ -364,7 +364,7 @@ console.log(y, "let");
 const z = 10;
 console.log(z, "const");
 
-// object //
+// object
 let object = {
   name: "John",
   age: 30,
@@ -372,7 +372,7 @@ let object = {
 };
 console.log(object);
 
-// variable scope //
+// 6. 7. 8. variable scope
 let global = 10;
 function inner() {
   let local = 20;
@@ -383,7 +383,7 @@ inner();
 console.log(global, "global");
 // console.log(local, "local"); it will throw error because local is not defined in global scope
 
-// closure //
+// 10. closure
 function closure(greet) {
   let counter = 0;
   return function innerFunc(name) {
@@ -399,15 +399,15 @@ innerValue("Bob");
 innerValue2("Doe");
 innerValue("Alice");
 
-// functions types //
+// 11. functions types
 
-// Normal Function
-// Pure Function
+// 15. Normal Function
+// 14. Pure Function
 function add(a, b) {
   return a + b;
 }
 
-// Function Expression
+// 15. Function Expression
 let adding = function (a, b) {
   return a + b;
 };
@@ -426,7 +426,18 @@ console.log(increment());
 console.log(increment());
 console.log(increment());
 
-// IIFE Function
+// 12. Higher Order Function
+function higherOrderFunction(callback) {
+  return callback;
+}
+
+const multiply = (a, b) => a * b;
+const added = (a, b) => a + b;
+
+console.log(higherOrderFunction(multiply)(20, 3));
+console.log(higherOrderFunction(added)(25, 3));
+
+// 16. IIFE Function
 (function instant() {
   let private = "I am private";
   console.log("IIFE is running");
@@ -435,7 +446,7 @@ console.log(increment());
 
 // console.log(private);
 
-// Objects //
+// 17. Objects
 
 // Object literal notation
 let obj1 = {
@@ -458,7 +469,7 @@ function Person(name, hobby) {
 }
 
 let wow = new Person("Divine", "Rapping");
-wow.work();
+// wow.work();
 
 // Object.create()
 let persoon = {
@@ -485,37 +496,47 @@ class PersonClass {
 let person3 = new PersonClass("Divine", 35);
 person3.greet();
 
-// add/remove
+// 18. add/remove
 object.modal = "Ford";
 object.year = 100;
 object["city"] = "Jaipur";
 delete object.city;
 // console.log(object);
 
-// property check
+// 19. property check
 let person = {
   name: "Alice",
   age: 25,
 };
 
 // using the in operator
-// console.log("name" in person);
-// console.log("gender" in person);
+console.log("name" in person);
+console.log("gender" in person);
 
 // using the hasOwnProperty method
-// console.log(person.hasOwnProperty("name"));
-// console.log(person.hasOwnProperty("gender"));
+console.log(person.hasOwnProperty("name"));
+console.log(person.hasOwnProperty("gender"));
 
 // using undefined check
-// console.log(person.name !== undefined);
-// console.log(person.gender !== undefined);
+console.log(person.name !== undefined);
+console.log(person.gender !== undefined);
 
 // optional chaining
-// console.log(person?.name);
-// console.log(person?.gender);
-// console.log(person?.age);
+console.log(person?.name);
+console.log(person?.gender);
+console.log(person?.age);
 
-// looping array
+// 20. this keyword
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+let person1 = new Person("John", 30);
+console.log(person1.name);
+console.log(person1.age);
+
+// 21. looping array
 const fruits = ["Apple", "Mango", "Watermelon", "Chiku"];
 
 // 1
@@ -528,14 +549,19 @@ fruits.forEach((fruit) => {
   console.log("forEach", fruit);
 });
 
-// 3
+// 22. 3 for arrays
 for (const fruit of fruits) {
   console.log("for of", fruit);
 }
 
+// 22. 4 for objects
+for (const index in fruits) {
+  console.log("for in", fruits[index]);
+}
+
 // 4
-fruits.map((fruit, index) => {
-  console.log("map", fruit.toUpperCase(), index);
+fruits.map((fruit) => {
+  console.log("map", fruit.toUpperCase());
 });
 
 // 5
@@ -552,7 +578,7 @@ do {
   j++;
 } while (j < fruits.length);
 
-// add/remove
+// 23. add/remove
 console.log(fruits);
 fruits.push("Orange");
 console.log(fruits);
@@ -565,8 +591,8 @@ console.log(fruits);
 fruits.splice(1, 0, "Kiwi");
 console.log(fruits);
 
-// map
-let numbers = [1, 2, 3, 4, 5];
+// 24. map
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const doubleNum = numbers.map((number) => {
   return number * 2;
@@ -577,3 +603,146 @@ const numberObj = numbers.map((number) => {
   return { value: number, sqr: number * number };
 });
 console.log(numberObj);
+
+// 25. filter = returns a new array containing all elements that satisfies the condition
+const evenNum = numbers.filter((number) => {
+  return number % 2 === 0;
+});
+console.log(evenNum);
+
+// find = returns the first element that satisfies the condition
+const first = numbers.find((number) => {
+  return number % 2 === 0;
+});
+console.log(first);
+
+// 26. some = returns true if at least one element satisfies the condition
+const hasEven = numbers.some((number) => {
+  return number % 2 === 0;
+});
+console.log(hasEven);
+
+// every = returns true if all elements satisfies the condition
+const allEven = numbers.every((number) => {
+  return number % 2 === 0;
+});
+console.log(allEven);
+
+/*
+<div id="divId" class="divClass">
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+</div>
+*/
+
+// 27. DOM Manipulation
+
+// 1 select by id
+// const div = document.getElementById("divId");
+
+// 2 select by class
+// const divClass = document.getElementsByClassName("divClass");
+
+// 3 select by tag name
+// const para = document.getElementsByTagName("p");
+
+// 4 select by query
+// const divQuery = document.querySelector("#divId");
+
+// 5 select by query all
+// const divQueryAll = document.querySelectorAll(".divClass");
+
+// 28 create/append
+
+// 1 create element
+// const newElement = document.createElement("p");
+// newElement.textContent = "New Paragraph";
+// div.appendChild(newElement);
+
+// 2 append element
+// const newElement2 = document.createElement("p");
+// newElement2.textContent = "New Paragraph 2";
+// div.appendChild(newElement2);
+
+// 29. innerHTML vs textContent
+
+// innerHTML = it will render the html tags
+// newElement.innerHTML = "<b>New Paragraphhh</b>";
+
+// textContent = it will not render the html tags
+// newElement.textContent = "<b>Newwww Paragrrraphhh</b>";
+
+// 30. remove
+
+// 1 using remove
+// newElement.remove();
+
+// 2 using removeChild
+// div.removeChild(newElement2);
+
+// 3 setting inner html to empty string
+// document.getElementById("divId").innerHTML = "";
+
+// 31. arrow function vs normal function
+
+// normal function
+// it has its own this keyword
+function normalFunction() {
+  console.log(this, "normal");
+}
+normalFunction();
+
+// arrow function
+// concise syntax
+// this refers to global/window object
+// arrow function does not have its own this keyword
+const arrowFunction = () => {
+  console.log(this, "arrow");
+};
+arrowFunction();
+
+// 32. Destructuring
+
+// array destructuring
+const [m, n, o] = [1, 2, 3];
+console.log(m, n, o);
+
+// object destructuring
+const { name, age, city } = { name: "John", age: 30, city: "New York" };
+console.log(name, age, city);
+
+// 33. template literals
+const naming = "John";
+const aging = 30;
+const citying = "New York";
+console.log(
+  `Hello my name is ${naming} and my age is ${aging} and my city is ${citying}`,
+);
+
+// 34. spread operator
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const arr3 = [...arr1, ...arr2];
+console.log(arr3);
+
+const object1 = { name: "John", age: 30 };
+const object2 = { city: "New York", country: "USA" };
+const object3 = { ...object1, ...object2 };
+console.log(object3);
+
+let original = [1, 2, 3];
+let copy = [...original];
+console.log(copy);
+
+// 35. default parameters
+function greet(name = "John") {
+  console.log(`Hello ${name}`);
+}
+greet();
+greet("Johnny");
+
+function divide(a, b = 2) {
+  return a / b;
+}
+console.log(divide(10));
+console.log(divide(10, 5));
