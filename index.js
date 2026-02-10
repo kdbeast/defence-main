@@ -686,16 +686,16 @@ console.log(allEven);
 // 31. arrow function vs normal function
 
 // normal function
-// it has its own this keyword
+//  -it has its own this keyword
 function normalFunction() {
   console.log(this, "normal");
 }
 normalFunction();
 
 // arrow function
-// concise syntax
-// this refers to global/window object
-// arrow function does not have its own this keyword
+//  -concise syntax
+//  -this refers to global/window object
+//  -arrow function does not have its own this keyword
 const arrowFunction = () => {
   console.log(this, "arrow");
 };
@@ -704,10 +704,12 @@ arrowFunction();
 // 32. Destructuring
 
 // array destructuring
+//  -it allows to extract values from arrays and assign them to variables
 const [m, n, o] = [1, 2, 3];
 console.log(m, n, o);
 
 // object destructuring
+//  -it allows to extract values from objects and assign them to variables
 const { name, age, city } = { name: "John", age: 30, city: "New York" };
 console.log(name, age, city);
 
@@ -720,6 +722,7 @@ console.log(
 );
 
 // 34. spread operator
+//  -it allows to expand an iterable (array, string, etc.) into individual elements
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 const arr3 = [...arr1, ...arr2];
@@ -735,6 +738,7 @@ let copy = [...original];
 console.log(copy);
 
 // 35. default parameters
+//  -it allows to provide default values for function parameters
 function greet(name = "John") {
   console.log(`Hello ${name}`);
 }
@@ -746,3 +750,173 @@ function divide(a, b = 2) {
 }
 console.log(divide(10));
 console.log(divide(10, 5));
+
+// 36. rest operator
+//  -it allows to pass multiple arguments to a function as an array
+const sum = (...numbers) => {
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+};
+console.log(sum(1, 2, 3, 4, 5));
+
+// 37. callback function
+//  -it allows to pass a function as an argument to another function
+// function greet(name, callback) {
+//   setTimeout(() => {
+//     console.log(`Hello ${name}`);
+//     callback();
+//   }, 2000);
+// }
+
+// greet("Kushal", () => {
+//   console.log("Callback function");
+// });
+
+// callback hell
+// function step1(name, callback) {
+//   setTimeout(() => {
+//     console.log("Step 1");
+//     console.log(`Hello ${name}`);
+//     callback();
+//   }, 1000);
+// }
+// function step2(name, callback) {
+//   setTimeout(() => {
+//     console.log("Step 2");
+//     console.log(`Hello ${name}`);
+//     callback();
+//   }, 2000);
+// }
+// function step3(name, callback) {
+//   setTimeout(() => {
+//     console.log("Step 3");
+//     console.log(`Hello ${name}`);
+//     callback();
+//   }, 3000);
+// }
+// function sayGoodbye() {
+//   setTimeout(() => {
+//     console.log("Step 4");
+//     console.log("Goodbye");
+//   }, 4000);
+// }
+// step1("Alice", () => {
+//   step2("Bob", () => {
+//     step3("Charlie", () => {
+//       sayGoodbye();
+//     });
+//   });
+// });
+
+// 38. Promise
+//  -it allows to handle asynchronous operations in a more organized way
+// function fetchData() {
+//   return new Promise((res, rej) => {
+//     setTimeout(() => {
+//       const success = true;
+//       if (success) {
+//         res("Data fetched successfully", 200);
+//       } else {
+//         rej("Failed to fetch data", 404);
+//       }
+//     }, 2000);
+//   });
+// }
+
+// fetchData()
+//   .then((data) => {
+//     console.log("Data:", data);
+//   })
+//   .catch((error) => {
+//     console.log("Error:", error);
+//   });
+
+// 39. Promise Chaining
+function step1(name) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Step 1 ${name}`);
+    }, 1000);
+  });
+}
+function step2(name) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Step 2 ${name}`);
+    }, 2000);
+  });
+}
+function step3(name) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Step 3 ${name}`);
+    }, 3000);
+  });
+}
+function sayGoodbye() {
+  setTimeout(() => {
+    console.log("Goodbye All");
+  }, 4000);
+}
+
+/*
+step1("Alice")
+  .then((data) => {
+    console.log("Data:", data);
+    return step2("Bob");
+  })
+  .then((data) => {
+    console.log("Data:", data);
+    return step3("Charlie");
+  })
+  .then((data) => {
+    console.log("Data:", data);
+    return sayGoodbye();
+  })
+  .catch((error) => {
+    console.log("Error:", error);
+  });
+*/
+
+// 40.Promise.all
+// Promise.all([step1("Alice"), step2("Bob"), step3("Charlie"), sayGoodbye()])
+//   .then((data) => {
+//     console.log("Data:", data);
+//   })
+//   .catch((error) => {
+//     console.log("Error:", error);
+//   })
+
+// 41. Promise.finally
+//   .finally(() => {
+//     console.log("Finally");
+//   });
+
+// 42. Async/Await
+async function fetchData() {
+  try {
+    console.log("Fetching data...");
+    const response = await fetch(
+      "https://api.freeapi.app/api/v1/public/randomusers?page=1&limit=1",
+    );
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+fetchData();
+
+// 46. JSON.stringify
+const stringified = { name: "John", age: 30, city: "New York" };
+const json = JSON.stringify(stringified);
+console.log(json);
+
+// 47. JSON.parse
+const parsed = JSON.parse(json);
+console.log(parsed);
+
+// 48. Local Storage
+localStorage.setItem("username", "John");
+console.log(localStorage.getItem("username"));
+localStorage.removeItem("username");
+localStorage.clear();
